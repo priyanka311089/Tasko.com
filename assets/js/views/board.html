@@ -8,16 +8,16 @@
    <section>
 <div class="task-list" ng-repeat="task in taskList">
   <div class="col-lg-4 col-md-4 col-sm-6 col-x-12">
-  <my-task task-title="{{task.title}}"></my-task>
+  <my-task task="task"></my-task>
   </div>
 </div>
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-x-12">
-  <div class="task-list task-block">
-    <div ng-click="addTaskList()">
+  <div class="task-list task-block ">
+    <div ng-click="addTaskList($event)">
     Add a list
     </div>
-    <div class="input-section" ng-show="showInputSection">
+    <div class="input-section add-task-section" ng-show="showInputSection">
       <input type="text" ng-model="titleList"/>
       <div>
         <button ng-click="saveTask()">Save</button>

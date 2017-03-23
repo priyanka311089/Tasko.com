@@ -68,7 +68,31 @@ font-weight: 200px;
 .card-detail-section{
 color: black;
 }
+.quick-card-editor-buttons.fade-in {
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+.card-detail-section span{
 
+    padding: 4px 6px;
+
+}
+.spacer{
+  margin: 10px 0;
+}
+.input-section{
+   position: absolute;
+    z-index: 1000;
+    background: gray;
+    padding: 20px;
+    margin-top: -13px;;
+
+}
+.card-detail-section span.card-tag {
+  background: magenta;
+  border-radius: 6px;
+  margin-right: 20px;
+}
 .input-section{
   margin: 0 0 10px 0;
 }

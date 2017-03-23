@@ -1,11 +1,16 @@
 <div class="task-block">
     <div class="tasktitle-section row">
-      <span class="pull-left" contenteditable="true">{{taskTitle}}</span>
-      <button class="pull-right" ng-click="addCardList()">...</button>
+      <span class="pull-left" ng-hide="editTaskTitle">{{task.title}}</span>
+      <span class="pull-left" ng-show="editTaskTitle"><input type="text" ng-model="newTaskTitle" ng-blur="editTask()"/></span>
+      <button class="pull-right" ng-click="removeTask()"><span class="glyphicon glyphicon-remove-circle"></button>
+      <button class="pull-right" ng-hide="editTaskTitle" ng-click="showEditTask()"><span class="glyphicon glyphicon-edit"></span></button>
+      <button class="pull-right" ng-show="editTaskTitle" ng-click="hideEditTask()"><span class="glyphicon glyphicon-off"></span></button>
+      <button class="pull-right" ng-click="addCardList($event)"><span class="glyphicon glyphicon-plus-sign"></button>
     </div>
-    <div class="input-section" ng-show="showInputSection">
-      <textarea ng-model="cardDetail"></textarea>
-      <div>
+    <div class="input-section add-card-section" ng-show="showInputSection">
+      Add Card
+      <textarea ng-model="cardDetail" class="spacer"></textarea>
+     <div class="spacer">
         <button ng-click="addCard()">Add</button>
         <button ng-click="hideInputSection()">Close</button>
       </div>
