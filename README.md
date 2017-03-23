@@ -1,4 +1,4 @@
-# taskManagement
+#Tasko.com
 <p>Tasko.com is a task management application build using angular js and express js.
 It has the following features</p>
 <ul>
