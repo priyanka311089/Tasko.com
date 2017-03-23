@@ -1,0 +1,30 @@
+<div class="row my-board">
+  <section class="col-lg-12 col-md-12 col-sm-12 col-x-12 board-title">
+
+    <h1>My Board </h1>
+
+
+  </section>
+   <section>
+<div class="task-list" ng-repeat="task in taskList">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-x-12">
+  <my-task task-title="{{task.title}}"></my-task>
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-6 col-x-12">
+  <div class="task-list task-block">
+    <div ng-click="addTaskList()">
+    Add a list
+    </div>
+    <div class="input-section" ng-show="showInputSection">
+      <input type="text" ng-model="titleList"/>
+      <div>
+        <button ng-click="saveTask()">Save</button>
+        <button ng-click="hideInputSection()">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+    </section>
+</div>

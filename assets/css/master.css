@@ -1,0 +1,80 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+.my-board{
+  margin-top: 30px;
+}
+.board-title{
+  margin-bottom: 30px;
+}
+.board-title h1{
+  font-size: 30px;
+  color: blue;
+}
+.task-block{
+    height: 150px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color:aqua;
+    overflow: scroll;
+    color : red;
+    margin-bottom: 20px;
+}
+.tasktitle-section , .card-detail-section{
+margin: 0 0 10px 0;
+padding: 5px;
+border: 1px solid grey;
+margin-bottom: 10px;
+font-weight: 200px;
+}
+.card-detail-section{
+color: black;
+}
+
+.input-section{
+  margin: 0 0 10px 0;
+}
+
+
+span.quick-card-editor-buttons-item-text {
+    border-right: 1px solid darkred;
+    padding-right: 10px;
+}

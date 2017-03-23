@@ -1,0 +1,43 @@
+<!DOCTYPE HTML >
+<html ng-app="taskManagement">
+
+<head>
+  <title>Tasko.COM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/master.css" rel="stylesheet" />
+</head>
+<body ng-cloak>
+  <div id="wrapper">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/" alt="Home Page" title="Home Page">Tasko.COM</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav nav-links">
+          <li><a href="javascript:void(0)" alt="Men" title="Men">Boards</a></li>
+          <li><a href="javascript:void(0)" alt="Women" title="Women">Settings</a></li>
+          <li><a href="javascript:void(0)" alt="Kids" title="Kids">About Us</a></li>
+       </ul>
+       </ul>
+         </div>
+    <div ng-view></div>
+
+    </div>
+
+  </div>
+  <script type="text/javascript" src="assets/js/lib/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/angular.js"></script>
+  <script type="text/javascript" src="assets/js/lib/angular-route.js"></script>
+  <script type="text/javascript" src="assets/js/taskManagement.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div class="task-block">
+    <div class="tasktitle-section row">
+      <span class="pull-left" contenteditable="true">{{taskTitle}}</span>
+      <button class="pull-right" ng-click="addCardList()">...</button>
+    </div>
+    <div class="input-section" ng-show="showInputSection">
+      <textarea ng-model="cardDetail"></textarea>
+      <div>
+        <button ng-click="addCard()">Add</button>
+        <button ng-click="hideInputSection()">Close</button>
+      </div>
+    </div>
+    <div class="card-list">
+      <div ng-repeat="card in cardList">
+        <card-item card="card"></card-item>
+      </div>
+    </div>
+</div>
