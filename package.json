@@ -5,7 +5,7 @@
   "main": "server.js",
   "keywords": [
     "Node.js",
-    "shopping",
+    "taskmanagement",
     "tasko"
   ],
   "dependencies": {
