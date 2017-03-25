@@ -1,12 +1,12 @@
 {
-  "name": "e-cart",
+  "name": "tasko",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "keywords": [
     "Node.js",
     "shopping",
-    "cart"
+    "tasko"
   ],
   "dependencies": {
     "body-parser": "^1.15.2",
