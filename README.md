@@ -7,7 +7,7 @@ It has the following features</p>
 <li>Option to delete a list.</li>
 <li>Option to edit & delete card from a particular list.</li>
 <li>Option to transfer a card from one list to another.</li>
-<li>Data should persist after refreshing the page.</li>
+<li>Data persists after refreshing the page.</li>
 </ul>
 <p>To RUN this app<p>
 <ul>
