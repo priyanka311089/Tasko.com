@@ -21,12 +21,17 @@
             <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-remove"></span></a>
     </div>
     <div class="spacer form-group">
-      <textarea ng-model="newCardDetail" class="form-control" ng-show="editOptions.editDetailBox"></textarea>
-      <input type="text" ng-model="newCardMember" class="form-control" ng-show="editOptions.editMemberBox" />
-      <select ng-model="selectedTask" class="form-control" ng-show="editOptions.selectTaskBox" ng-options="task as task.title for task in taskList">
+      <div class="head-title">
+        <h1 ng-show="editOptions.editDetailBox">Details</h1>
+        <h1 ng-show="editOptions.selectTaskBox">Move</h1>
+        <h1 ng-show="editOptions.editMemberBox">Members</h1>
+      <div>
+      <textarea ng-model="newCardDetail" class="spacer form-control" ng-show="editOptions.editDetailBox"></textarea>
+      <input type="text" ng-model="newCardMember" class="spacer form-control" ng-show="editOptions.editMemberBox" />
+      <select ng-model="selectedTask" class="spacer form-control" ng-show="editOptions.selectTaskBox" ng-options="task as task.title for task in taskList">
       </select>
       <div>
-      <button ng-click="submitCard(card)" ng-disabled="disableSubmitButton" class="btn spacer" ng-show="editOptions.editDetailBox || editOptions.editMemberBox || editOptions.selectTaskBox">Submit</button>
+      <button ng-click="submitCard(card)" ng-disabled="disableSubmitButton" class="btn" ng-show="editOptions.editDetailBox || editOptions.editMemberBox || editOptions.selectTaskBox">Submit</button>
      </div>
     </div>
 </div>
