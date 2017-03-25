@@ -84,10 +84,14 @@ angular
 
           }
           $scope.editTask=function(){
-            $http.post('/api/editTask',{ newTaskTitle:$scope.newTaskTitle ,oldTask:$scope.task}).success(function(response) {
-                 $scope.$parent.$parent.updateTasks();
-                 $scope.editTaskTitle = false;
-             });
+            if($scope.newTaskTitle){
+              $http.post('/api/editTask',{ newTaskTitle:$scope.newTaskTitle ,oldTask:$scope.task}).success(function(response) {
+                   $scope.$parent.$parent.updateTasks();
+
+               });
+            }
+             $scope.editTaskTitle = false;
+
           }
 
           $scope.removeTask= function(){
@@ -164,21 +168,26 @@ angular
               $scope.editOptions.selectTaskBox = false;
               $scope.editOptions.editMemberBox = false;
               $scope.editOptions.editDetailBox = false;
+              $scope.disableSubmitButton = true;
+
           }
           $scope.showMoveCard=function(){
            $scope.editOptions.selectTaskBox = true;
            $scope.editOptions.editMemberBox = false;
            $scope.editOptions.editDetailBox = false;
+             $scope.disableSubmitButton = true;
          }
          $scope.showCardMemberBox=function(){
           $scope.editOptions.selectTaskBox = false;
           $scope.editOptions.editMemberBox = true;
           $scope.editOptions.editDetailBox = false;
+            $scope.disableSubmitButton = true;
         }
         $scope.showCardDetailBox=function(){
          $scope.editOptions.selectTaskBox = false;
          $scope.editOptions.editMemberBox = false;
          $scope.editOptions.editDetailBox = true;
+           $scope.disableSubmitButton = true;
        }
          $scope.removeCard= function(card){
            $http.post('/api/removeCard',card).success(function(response) {
@@ -186,34 +195,69 @@ angular
                $scope.$parent.$parent.getCardList();
             });
          }
+
+         $scope.$watch("selectedTask",function(newValue,oldValue){
+
+            if(newValue != oldValue && newValue){
+             $scope.disableSubmitButton = false;
+           }
+         });
+         $scope.$watch("newCardMember",function(newValue,oldValue){
+           if(newValue != ""){
+             if(newValue != oldValue){
+               $scope.disableSubmitButton = false;
+             }
+           }else{
+             $scope.disableSubmitButton = true;
+           }
+
+         });
+         $scope.$watch("newCardDetail",function(newValue,oldValue){
+           if(newValue){
+             if(newValue != oldValue){
+               $scope.disableSubmitButton = false;
+             }
+           }
+           else{
+             $scope.disableSubmitButton = true;
+           }
+         });
+
          $scope.submitCard=function(card){
            if($scope.editOptions.selectTaskBox){
-             var moveCardData = {
-               card:card,
-               newTask : $scope.selectedTask
-             }
-             $http.post('/api/moveCard',moveCardData).success(function(response) {
-                 //Update whole board
-                 $scope.$parent.$parent.$parent.$parent.updateTasks();
-              });
-           }
-           else if($scope.editOptions.editMemberBox){
+              var moveCardData = {
+                   card:card,
+                   newTask : $scope.selectedTask
+                 }
+                 $http.post('/api/moveCard',moveCardData).success(function(response) {
+                     //Update whole board
+                     $scope.$parent.$parent.$parent.$parent.updateTasks();
+                  });
+               }
+             else if($scope.editOptions.editMemberBox){
              var changedCard = card;
-             card.member = $scope.newCardMember
-             $http.post('/api/ChangeCardData',card).success(function(response) {
-                //Update whole board
-                 $scope.$parent.$parent.$parent.$parent.updateTasks();
-              });
+             if(scope.newCardMember)
+             {
+              card.member = $scope.newCardMember;
+               $http.post('/api/ChangeCardData',card).success(function(response) {
+                  //Update whole board
+                   $scope.$parent.$parent.$parent.$parent.updateTasks();
+                });
+             }
+
            }
            else if($scope.editOptions.editDetailBox){
              var changedCard = card;
-             card.cardDetail = $scope.newCardDetail;
-             $http.post('/api/ChangeCardData',card).success(function(response) {
-                 console.log(response);
-                 $scope.$parent.$parent.$parent.$parent.updateTasks();
-              });
-           }
+              if($scope.newCardDetail){
+                 card.cardDetail = $scope.newCardDetail;
+                 $http.post('/api/ChangeCardData',card).success(function(response) {
+                       console.log(response);
+                       $scope.$parent.$parent.$parent.$parent.updateTasks();
+                });
+             }
 
+           }
+           $scope.disableSubmitButton = true;
           }
 
         } //DOM manipulation

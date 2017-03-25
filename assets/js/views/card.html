@@ -1,32 +1,32 @@
-<div>
+<div style="row">
   <div class="card-detail-section row">
     <span class="pull-left" contenteditable="true">{{card.cardDetail}}</span>
-    <button class="pull-right" ng-click="removeCard(card)"><span class="glyphicon glyphicon-remove-circle"></button>
-    <button class="pull-right" ng-click="editCard($event)"><span class="glyphicon glyphicon-edit"></span></button>
+    <button class="btn-link pull-right" ng-click="removeCard(card)"><span class="glyphicon glyphicon-trash"></button>
+    <button class="btn-link pull-right" ng-click="editCard($event)"><span class="glyphicon glyphicon-edit"></span></button>
     <span  ng-if="card.member" class="pull-right card-tag">{{card.member}}</span>
   </div>
   <div class="input-section edit-card-section" ng-show="showEditingSection">
   <div class="quick-card-editor-buttons fade-in" >
-    <a class="quick-card-editor-buttons-item js-edit-labels" ng-click="showCardDetailBox()">
+    <a class=" btn-link quick-card-editor-buttons-item js-edit-labels" ng-click="showCardDetailBox()">
       <span class="icon-sm icon-label light"></span>
       <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-edit"></span></a>
-      <a class="quick-card-editor-buttons-item js-edit-members" href="javascript:void(0)" ng-click="showCardMemberBox()">
+      <a class="btn-link" href="javascript:void(0)" ng-click="showCardMemberBox()">
         <span class="icon-sm icon-member light"></span>
         <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-tags"></span></a>
-        <a class="quick-card-editor-buttons-item js-move-card" href="javascript:void(0)" ng-click=showMoveCard()>
+        <a class="btn-link" href="javascript:void(0)" ng-click=showMoveCard()>
           <span class="icon-sm icon-move light"></span>
           <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-share-alt"></span></span></a>
-            <a class="quick-card-editor-buttons-item js-edit-members" href="javascript:void(0)" ng-click=closeEditCard()>
+            <a class="btn-link" href="javascript:void(0)" ng-click=closeEditCard()>
             <span class="icon-sm icon-member light"></span>
-            <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-off"></span></a>
+            <span class="quick-card-editor-buttons-item-text"><span class="glyphicon glyphicon-remove"></span></a>
     </div>
-    <div class="spacer">
-      <textarea ng-model="newCardDetail" ng-show="editOptions.editDetailBox"></textarea>
-      <input type="text" ng-model="newCardMember" ng-show="editOptions.editMemberBox" />
-      <select ng-model="selectedTask" ng-show="editOptions.selectTaskBox" ng-options="task as task.title for task in taskList">
+    <div class="spacer form-group">
+      <textarea ng-model="newCardDetail" class="form-control" ng-show="editOptions.editDetailBox"></textarea>
+      <input type="text" ng-model="newCardMember" class="form-control" ng-show="editOptions.editMemberBox" />
+      <select ng-model="selectedTask" class="form-control" ng-show="editOptions.selectTaskBox" ng-options="task as task.title for task in taskList">
       </select>
       <div>
-      <button ng-click="submitCard(card)" class="spacer" ng-show="editOptions.editDetailBox || editOptions.editMemberBox || editOptions.selectTaskBox">Submit</button>
+      <button ng-click="submitCard(card)" ng-disabled="disableSubmitButton" class="btn spacer" ng-show="editOptions.editDetailBox || editOptions.editMemberBox || editOptions.selectTaskBox">Submit</button>
      </div>
     </div>
 </div>

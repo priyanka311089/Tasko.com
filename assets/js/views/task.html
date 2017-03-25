@@ -1,18 +1,18 @@
 <div class="task-block">
     <div class="tasktitle-section row">
       <span class="pull-left" ng-hide="editTaskTitle">{{task.title}}</span>
-      <span class="pull-left" ng-show="editTaskTitle"><input type="text" ng-model="newTaskTitle" ng-blur="editTask()"/></span>
-      <button class="pull-right" ng-click="removeTask()"><span class="glyphicon glyphicon-remove-circle"></button>
-      <button class="pull-right" ng-hide="editTaskTitle" ng-click="showEditTask()"><span class="glyphicon glyphicon-edit"></span></button>
-      <button class="pull-right" ng-show="editTaskTitle" ng-click="hideEditTask()"><span class="glyphicon glyphicon-off"></span></button>
-      <button class="pull-right" ng-click="addCardList($event)"><span class="glyphicon glyphicon-plus-sign"></button>
+      <span class="pull-left form-group" ng-show="editTaskTitle"><input type="text" ng-model="newTaskTitle" ng-blur="editTask()" class="form-control"/></span>
+      <button class="btn-link pull-right" ng-click="removeTask()"><span class="glyphicon glyphicon-trash"></button>
+      <button class="btn-link pull-right" ng-hide="editTaskTitle" ng-click="showEditTask()"><span class="glyphicon glyphicon-edit"></span></button>
+      <button class="btn-link pull-right" ng-show="editTaskTitle" ng-click="hideEditTask()"><span class="glyphicon glyphicon-remove"></span></button>
+      <button class="btn-link pull-right" ng-click="addCardList($event)"><span class="glyphicon glyphicon-plus-sign"></button>
     </div>
-    <div class="input-section add-card-section" ng-show="showInputSection">
-      Add Card
-      <textarea ng-model="cardDetail" class="spacer"></textarea>
+    <div class="input-section add-card-section form-group" ng-show="showInputSection">
+      <h1>Add Card</h1>
+      <textarea ng-model="cardDetail" class="spacer form-control"></textarea>
      <div class="spacer">
-        <button ng-click="addCard()">Add</button>
-        <button ng-click="hideInputSection()">Close</button>
+        <button class="btn" ng-click="addCard()">Add</button>
+        <button  class="btn" ng-click="hideInputSection()">Close</button>
       </div>
     </div>
     <div class="card-list">

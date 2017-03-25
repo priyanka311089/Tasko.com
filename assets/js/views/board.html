@@ -14,14 +14,14 @@
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-x-12">
   <div class="task-list task-block ">
-    <div ng-click="addTaskList($event)">
+    <div ng-click="addTaskList($event)" style="height: 45px;">
     Add a list
     </div>
-    <div class="input-section add-task-section" ng-show="showInputSection">
-      <input type="text" ng-model="titleList"/>
-      <div>
-        <button ng-click="saveTask()">Save</button>
-        <button ng-click="hideInputSection()">Close</button>
+    <div class="input-section add-task-section form-group" ng-show="showInputSection">
+      <input type="text" class="form-control" ng-model="titleList"/>
+      <div class="spacer">
+        <button class="btn" ng-click="saveTask()">Save</button>
+        <button class="btn"  ng-click="hideInputSection()">Close</button>
       </div>
     </div>
     </div>
