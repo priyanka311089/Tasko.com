@@ -175,7 +175,7 @@ angular
            $scope.editOptions.selectTaskBox = true;
            $scope.editOptions.editMemberBox = false;
            $scope.editOptions.editDetailBox = false;
-             $scope.disableSubmitButton = true;
+             $scope.disableSubmitButton = false;
          }
          $scope.showCardMemberBox=function(){
           $scope.editOptions.selectTaskBox = false;
@@ -196,12 +196,7 @@ angular
             });
          }
 
-         $scope.$watch("selectedTask",function(newValue,oldValue){
 
-            if(newValue != oldValue && newValue){
-             $scope.disableSubmitButton = false;
-           }
-         });
          $scope.$watch("newCardMember",function(newValue,oldValue){
            if(newValue != ""){
              if(newValue != oldValue){
@@ -232,19 +227,18 @@ angular
                  $http.post('/api/moveCard',moveCardData).success(function(response) {
                      //Update whole board
                      $scope.$parent.$parent.$parent.$parent.updateTasks();
-                  });
+                });
                }
              else if($scope.editOptions.editMemberBox){
              var changedCard = card;
              if($scope.newCardMember)
              {
-              card.member = $scope.newCardMember;
+               card.member = $scope.newCardMember;
                $http.post('/api/ChangeCardData',card).success(function(response) {
                   //Update whole board
                    $scope.$parent.$parent.$parent.$parent.updateTasks();
                 });
              }
-
            }
            else if($scope.editOptions.editDetailBox){
              var changedCard = card;
