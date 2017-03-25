@@ -236,7 +236,7 @@ angular
                }
              else if($scope.editOptions.editMemberBox){
              var changedCard = card;
-             if(scope.newCardMember)
+             if($scope.newCardMember)
              {
               card.member = $scope.newCardMember;
                $http.post('/api/ChangeCardData',card).success(function(response) {
